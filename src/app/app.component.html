@@ -1,0 +1,10 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" class="sidebar" [opened]="sidebarOpen$ | async">
+    <app-user-actions-area></app-user-actions-area>
+  </mat-drawer>
+  <mat-drawer-content class="content">
+    <div class="main-content">
+      <app-main-content></app-main-content>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

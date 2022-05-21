@@ -1,0 +1,15 @@
+.modal-container {
+  background-color: white;
+  padding: 16px;
+  border-radius: 4px;
+  text-align: center;
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    button {
+      &:first-child {
+        margin-right: 48px;
+      }
+    }
+  }
+}
