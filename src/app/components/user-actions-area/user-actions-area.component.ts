@@ -1,4 +1,4 @@
-import { CdkPortal, CdkPortalOutlet, ComponentPortal, Portal } from '@angular/cdk/portal';
+import { CdkPortal, CdkPortalOutlet, ComponentPortal, DomPortal, Portal, TemplatePortal } from '@angular/cdk/portal';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SidebarService } from 'src/app/services/sidebar.service';

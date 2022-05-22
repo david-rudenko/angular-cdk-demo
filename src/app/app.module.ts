@@ -21,6 +21,8 @@ import {MatCardModule} from '@angular/material/card';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 
+import {CdkAccordionModule} from '@angular/cdk/accordion';
+
 @NgModule({
   declarations: [AppComponent, MainContentComponent, UserActionsAreaComponent, EditUserComponent, DeleteUserComponent, ConfirmModalComponent],
   imports: [
@@ -36,7 +38,8 @@ import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.
     MatButtonModule,
     PortalModule,
     OverlayModule,
-    MatCardModule
+    MatCardModule,
+    CdkAccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent],

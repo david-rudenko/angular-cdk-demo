@@ -23,9 +23,11 @@ export class ModalDialogRef<TComponent, TData = any> {
   private afterClosed = new Subject<TData | undefined>();
   private backdropClickSub: Subscription;
 
+  instance: TComponent;
+
   afterClosed$ = this.afterClosed.asObservable();
 
-  constructor(public instance: TComponent, private overlayRef: OverlayRef) {
+  constructor(private overlayRef: OverlayRef) {
     this.backdropClickSub = this.overlayRef
       .backdropClick()
       .subscribe(() => this.close());
@@ -53,7 +55,9 @@ export class ModalDialogService {
     contentComponent: ComponentType<TComponent>,
     data?: TData
   ): ModalDialogRef<TComponent, TData> {
-    let dialogRef: ModalDialogRef<TComponent, TData>;
+    let dialogRef: ModalDialogRef<TComponent, TData> = new ModalDialogRef(
+      this.overlayRef
+    );
 
     const injector = Injector.create({
       providers: [
@@ -68,8 +72,7 @@ export class ModalDialogService {
       injector
     );
     const componentRef = this.overlayRef.attach(portal);
-
-    dialogRef = new ModalDialogRef(componentRef.instance, this.overlayRef);
+    dialogRef.instance = componentRef.instance;
     return dialogRef;
   }
 
